@@ -1,20 +1,30 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from './redux';
-import { getUser } from './redux/ducks/user'
+import { useDispatch } from 'react-redux';
+import { getItems } from './redux/ducks/item';
+import Container from './components/Shared/Container';
+import Header from './components/Header';
+import ProductList from './components/ProductList';
+import ContentWrapper from './components/Shared/ContentWrapper';
+import { Layout } from './components/Shared/Layout';
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser())
-  }, [dispatch])
+    dispatch(getItems());
+  }, [dispatch]);
 
-  const user = useSelector((state: RootState) => state.user)
   return (
-    <div className="App">
-      Hello, {user.name}
-    </div>
+    <Layout>
+      <Header />
+      <ContentWrapper>
+        <Container flex between>
+          Filters here
+          <ProductList />
+          Basket Here
+        </Container>
+      </ContentWrapper>
+    </Layout>
   );
 }
 
