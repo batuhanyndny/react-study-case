@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { IUser, setUser } from '../../ducks/user';
 import { client } from '../../../utils/externalFetch';
-import IAction from '../../types';
+import { IAction } from '../../types';
 
 const fetchUser = () =>
   client.request({
