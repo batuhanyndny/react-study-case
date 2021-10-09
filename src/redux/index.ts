@@ -1,12 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
-import counterReducer from './ducks/counter';
-import userReducer from './ducks/user';
 import { rootSaga } from './sagas/rootSaga';
+// reducers
+import userReducer from './ducks/user';
+import itemReducer from './ducks/item';
+import cartReducer from './ducks/cart';
 
 const reducer = combineReducers({
-  counter: counterReducer,
+  items: itemReducer,
   user: userReducer,
+  cart: cartReducer,
 });
 
 export type RootState = ReturnType<typeof reducer>;
