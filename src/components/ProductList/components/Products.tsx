@@ -3,14 +3,18 @@ import { useSelector } from 'react-redux';
 import ProductCard from '../../ProductCard';
 import { StyledProducts } from '../style';
 import { RootState } from '../../../redux';
+import { PER_PAGE } from '../../../constants';
 const Products = () => {
   const items = useSelector((state: RootState) => state.items);
+  const pagination = useSelector((state: RootState) => state.pagination);
 
   return (
     <StyledProducts>
-      {items.slice(0, 20).map((product, idx) => {
-        return <ProductCard product={product} key={idx} />;
-      })}
+      {items
+        .slice((pagination.page - 1) * PER_PAGE, (pagination.page - 1) * PER_PAGE + PER_PAGE)
+        .map((product, idx) => {
+          return <ProductCard product={product} key={idx} />;
+        })}
     </StyledProducts>
   );
 };
