@@ -19,3 +19,10 @@ export const theme: ITheme = {
   pageBackground: '#fafafa',
   gray: '#697488',
 };
+
+export const FILTERS = {
+  PRICE_LOW_HIGH: 'react-study-case/filters/price_low_to_high',
+  PRICE_HIGH_LOW: 'react-study-case/filters/price_high_to_low',
+  PRICE_NEW_OLD: 'react-study-case/filters/price_new_to_old',
+  PRICE_OLD_NEW: 'react-study-case/filters/price_old_to_new',
+};
