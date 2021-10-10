@@ -5,11 +5,13 @@ import { rootSaga } from './sagas/rootSaga';
 import userReducer from './ducks/user';
 import itemReducer from './ducks/item';
 import cartReducer from './ducks/cart';
+import paginationReducer from './ducks/pagination';
 
 const reducer = combineReducers({
   items: itemReducer,
   user: userReducer,
   cart: cartReducer,
+  pagination: paginationReducer,
 });
 
 export type RootState = ReturnType<typeof reducer>;
