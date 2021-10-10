@@ -6,6 +6,7 @@ import Header from './components/Header';
 import ProductList from './components/ProductList';
 import ContentWrapper from './components/Shared/ContentWrapper';
 import { Layout } from './components/Shared/Layout';
+import Filters from './components/Filters';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
       <Header />
       <ContentWrapper>
         <Container flex between>
-          Filters here
+          <Filters />
           <ProductList />
           Basket Here
         </Container>

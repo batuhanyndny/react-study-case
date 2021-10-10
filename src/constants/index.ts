@@ -4,6 +4,7 @@ interface ITheme {
   title: string;
   pageBackground: string;
   gray: string;
+  purple: string;
 }
 
 export const PER_PAGE = 16;
@@ -18,6 +19,7 @@ export const theme: ITheme = {
   title: '#6F6F6F',
   pageBackground: '#fafafa',
   gray: '#697488',
+  purple: '#5D38C0',
 };
 
 export const FILTERS = {
