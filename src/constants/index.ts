@@ -5,6 +5,7 @@ interface ITheme {
   pageBackground: string;
   gray: string;
   lightGray: string;
+  lighterGray: string;
   purple: string;
 }
 
@@ -20,7 +21,8 @@ export const theme: ITheme = {
   title: '#6F6F6F',
   pageBackground: '#fafafa',
   gray: '#697488',
-  lightGray: '#E0E0E0',
+  lightGray: '#A8A8A8',
+  lighterGray: '#E0E0E0',
   purple: '#5D38C0',
 };
 
