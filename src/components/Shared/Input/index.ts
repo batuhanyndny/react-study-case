@@ -9,7 +9,7 @@ export interface IInput {
   label: string;
   id: string;
   name: string;
-  value: string;
+  value?: string;
   selectFn?: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
