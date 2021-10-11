@@ -1,19 +1,10 @@
 import React, { FC } from 'react';
-import { CheckboxContainer, StyledCheckbox, StyledCheckboxBoxSpan, StyledLabel } from './style';
-export interface CheckboxInterface {
-  label: string;
-  id: string;
-  name: string;
-  value: string;
-}
+import { InputContainer, StyledCheckbox, StyledCheckboxBoxSpan, StyledLabel } from '../style';
+import { IInput } from '../';
 
-export interface LabelInterface {
-  for: string;
-}
-
-const Checkbox: FC<CheckboxInterface> = ({ label, id, name, value }) => {
+const Checkbox: FC<IInput> = ({ label, id, name, value }) => {
   return (
-    <CheckboxContainer>
+    <InputContainer>
       <StyledCheckbox label={label} id={id} name={name} value={value} />
       <StyledCheckboxBoxSpan>
         <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +17,8 @@ const Checkbox: FC<CheckboxInterface> = ({ label, id, name, value }) => {
           />
         </svg>
       </StyledCheckboxBoxSpan>
-      <StyledLabel for={id}>{label}</StyledLabel>
-    </CheckboxContainer>
+      <StyledLabel htmlFor={id}>{label}</StyledLabel>
+    </InputContainer>
   );
 };
 
