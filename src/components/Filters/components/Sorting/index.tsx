@@ -1,11 +1,29 @@
-import React from 'react';
-import Checkbox from '../../../Shared/Checkbox';
+import React, { useCallback } from 'react';
+import { Radiobox } from '../../../Shared/Input/';
+import { FilterContainer, FilterContainerContent, FilterContainerLabel } from '../../style';
+import { FILTERS } from '../../../../constants';
+import { useDispatch } from 'react-redux';
+import { selectSort } from '../../../../redux/ducks/sort';
 
 const Sorting = () => {
+  const dispatch = useDispatch();
+
+  const addFilterCallback = useCallback(
+    (event: React.FormEvent<HTMLInputElement>) => {
+      dispatch(selectSort(event.currentTarget.value));
+    },
+    [dispatch],
+  );
+
   return (
-    <div>
-      <Checkbox label="LABEL1" name="DENEME" id="deneme" value="123" />
-    </div>
+    <FilterContainer>
+      <FilterContainerLabel>Sorting</FilterContainerLabel>
+      <FilterContainerContent>
+        {Object.entries(FILTERS).map(([key, { label, value }], idx) => (
+          <Radiobox label={label} name="sorting" id={key} key={idx} value={value} selectFn={addFilterCallback} />
+        ))}
+      </FilterContainerContent>
+    </FilterContainer>
   );
 };
 
