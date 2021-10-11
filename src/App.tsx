@@ -7,12 +7,14 @@ import ProductList from './components/ProductList';
 import ContentWrapper from './components/Shared/ContentWrapper';
 import { Layout } from './components/Shared/Layout';
 import Filters from './components/Filters';
+import { getCompanies } from './redux/ducks/company';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getItems());
+    dispatch(getCompanies());
   }, [dispatch]);
 
   return (

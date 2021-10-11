@@ -1,19 +1,19 @@
 import { call, put } from 'redux-saga/effects';
-import { IUser, setUser } from '../../ducks/user';
 import { client } from '../../../utils/externalFetch';
 import { IAction } from '../../types';
+import { ICompany, setCompanies } from '../../ducks/company';
 
-const fetchUser = () =>
+const fetchCompanies = () =>
   client.request({
     method: 'GET',
-    url: 'users',
+    url: 'companies',
   });
 
-export function* handleGetUser(action: IAction<IUser>): any {
+export function* handleGetCompanies(action: IAction<ICompany[]>): any {
   try {
-    const response = yield call(fetchUser);
+    const response = yield call(fetchCompanies);
     const { data } = response;
-    yield put(setUser(data));
+    yield put(setCompanies(data));
   } catch (error) {
     console.log(error);
   }
