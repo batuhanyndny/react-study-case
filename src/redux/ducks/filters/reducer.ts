@@ -1,7 +1,7 @@
 import deepEqual from 'deep-equal';
 import { Filter, UnionFilter } from '.';
 
-export const addToFilters = (state: Filter[], payload: UnionFilter) => {
+export const addToFiltersReducer = (state: Filter[], payload: UnionFilter) => {
   const isArray = Array.isArray(payload);
   if (isArray) {
     return [...state, ...payload];
@@ -10,7 +10,7 @@ export const addToFilters = (state: Filter[], payload: UnionFilter) => {
   }
 };
 
-export const removeFromFilters = (state: Filter[], payload: UnionFilter) => {
+export const removeFromFiltersReducer = (state: Filter[], payload: UnionFilter) => {
   const isArray = Array.isArray(payload);
   if (isArray) {
     const newFilters = state.filter((filter, index) => {

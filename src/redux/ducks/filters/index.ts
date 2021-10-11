@@ -1,5 +1,5 @@
 import { IAction } from '../../types';
-import { addToFilters, removeFromFilters } from './reducer';
+import { addToFiltersReducer, removeFromFiltersReducer } from './reducer';
 // interfaces
 
 export type Filter = string;
@@ -16,10 +16,10 @@ const initalState: Filter[] = [];
 export default function reducer(state = initalState, action: IAction<UnionFilter>): Filter[] {
   switch (action.type) {
     case ADD_FILTER:
-      if (action.payload) return addToFilters(state, action.payload);
+      if (action.payload) return addToFiltersReducer(state, action.payload);
       throw new Error('Action Payload is empty @addToCartReducer');
     case REMOVE_FILTER:
-      if (action.payload) return removeFromFilters(state, action.payload);
+      if (action.payload) return removeFromFiltersReducer(state, action.payload);
       throw new Error('Action Payload is empty @removeFromCartReducer');
     default:
       return state;
@@ -27,10 +27,10 @@ export default function reducer(state = initalState, action: IAction<UnionFilter
 }
 
 // Action Creators
-export function addToCart(filter: UnionFilter): IAction<UnionFilter> {
+export function addToFilters(filter: UnionFilter): IAction<UnionFilter> {
   return { type: ADD_FILTER, payload: filter };
 }
 
-export function removeFromCart(item: UnionFilter): IAction<UnionFilter> {
+export function removeFromFilters(item: UnionFilter): IAction<UnionFilter> {
   return { type: REMOVE_FILTER, payload: item };
 }
