@@ -85,6 +85,20 @@ export const StyledRadio = styled.input.attrs((props: IInput) => ({
   }
 `;
 
+export const StyledText = styled.input.attrs((props: IInput) => ({
+  type: 'text',
+  id: props.id,
+  name: props.name,
+}))<IInput>`
+  height: 48px;
+  border: 2px solid ${({ theme }) => theme.lighterGray};
+  padding: 0 15px;
+  ::placeholder {
+    color: ${({ theme }) => theme.lightGray};
+    opacity: 1;
+  }
+`;
+
 export const StyledLabel = styled.label`
   font-size: 14px;
 `;
