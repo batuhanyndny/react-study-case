@@ -6,10 +6,11 @@ export interface IInputContainer {
 }
 
 export interface IInput {
-  label?: string;
   id: string;
   name: string;
+  label?: string;
   value?: string;
+  placeholder?: string;
   selectFn?: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
