@@ -6,7 +6,7 @@ export interface IInputContainer {
 }
 
 export interface IInput {
-  label: string;
+  label?: string;
   id: string;
   name: string;
   value?: string;
