@@ -7,6 +7,7 @@ interface ITheme {
   lightGray: string;
   lighterGray: string;
   purple: string;
+  lightPurple: string;
 }
 
 export const PER_PAGE = 16;
@@ -24,6 +25,7 @@ export const theme: ITheme = {
   lightGray: '#A8A8A8',
   lighterGray: '#E0E0E0',
   purple: '#5D38C0',
+  lightPurple: '#F2F0FD',
 };
 
 export const FILTERS = {
