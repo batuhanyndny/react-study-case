@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getItems } from './redux/ducks/item';
+import { getItems } from './redux/ducks/items';
 import Container from './components/Shared/Container';
 import Header from './components/Header';
 import ProductList from './components/ProductList';

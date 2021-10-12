@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { StyledProductCard, ImageContainer, Price, Title, Button } from './style';
-import { IItem } from '../../redux/ducks/item';
+import { IItem } from '../../redux/ducks/items';
 
 const ProductCard: FC<{ product: IItem }> = ({ product }) => {
   return (

@@ -1,5 +1,5 @@
 import { ICart } from '.';
-import { IItem } from '../item';
+import { IItem } from '../items';
 import { addToCartReducer, removeFromCartReducer } from './reducer';
 
 // mock data

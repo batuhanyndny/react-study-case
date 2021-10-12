@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
 import { rootSaga } from './sagas/rootSaga';
 // reducers
-import itemReducer from './ducks/item';
+import itemReducer from './ducks/items';
 import cartReducer from './ducks/cart';
 import paginationReducer from './ducks/pagination';
 import filterReducer from './ducks/filters';
