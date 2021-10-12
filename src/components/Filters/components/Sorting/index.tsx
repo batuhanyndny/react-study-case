@@ -8,7 +8,7 @@ import { selectSort } from '../../../../redux/ducks/sort';
 const Sorting = () => {
   const dispatch = useDispatch();
 
-  const addFilterCallback = useCallback(
+  const selectSortCallback = useCallback(
     (event: React.FormEvent<HTMLInputElement>) => {
       dispatch(selectSort(event.currentTarget.value));
     },
@@ -20,7 +20,7 @@ const Sorting = () => {
       <FilterContainerLabel>Sorting</FilterContainerLabel>
       <FilterContainerContent>
         {Object.entries(FILTERS).map(([key, { label, value }], idx) => (
-          <Radiobox label={label} name="sorting" id={key} key={idx} value={value} selectFn={addFilterCallback} />
+          <Radiobox label={label} name="sorting" id={key} key={idx} value={value} selectFn={selectSortCallback} />
         ))}
       </FilterContainerContent>
     </FilterContainer>

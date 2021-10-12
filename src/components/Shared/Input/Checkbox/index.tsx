@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { InputContainer, StyledCheckbox, StyledCheckboxBoxSpan, StyledLabel } from '../style';
 import { IInput } from '../';
 
-const Checkbox: FC<IInput> = ({ label, id, name, value }) => {
+const Checkbox: FC<IInput> = ({ label, id, name, value, selectFn }) => {
   return (
     <InputContainer>
-      <StyledCheckbox label={label} id={id} name={name} value={value} />
+      <StyledCheckbox label={label} id={id} name={name} value={value} onChange={selectFn} />
       <StyledCheckboxBoxSpan>
         <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
