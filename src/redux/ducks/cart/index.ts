@@ -1,5 +1,5 @@
 import { IAction } from '../../types';
-import { IItem } from '../item';
+import { IItem } from '../items';
 import { addToCartReducer, removeFromCartReducer } from './reducer';
 // interfaces
 export interface ICart {

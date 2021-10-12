@@ -15,12 +15,12 @@ import { setPage } from '../../redux/ducks/pagination';
 
 const Pagination = () => {
   const pagination = useSelector((state: RootState) => state.pagination);
-  const items = useSelector((state: RootState) => state.items);
+  const itemsState = useSelector((state: RootState) => state.items);
   const dispatch = useDispatch();
 
   const maxPageCount = useMemo(() => {
-    return Math.round(items.length / PER_PAGE);
-  }, [items]);
+    return Math.round(itemsState.items.length / PER_PAGE);
+  }, [itemsState.items]);
 
   const pages = useMemo(() => {
     return Array.from({ length: maxPageCount }, (_, i) => i + 1);

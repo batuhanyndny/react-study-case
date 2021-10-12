@@ -1,4 +1,4 @@
-import { IItem } from '../item';
+import { IItem } from '../items';
 import deepEqual from 'deep-equal';
 import { ICart } from '.';
 import { roundNumber } from '../../../utils/helpers';

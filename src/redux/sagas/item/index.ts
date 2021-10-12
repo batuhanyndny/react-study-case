@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { client } from '../../../utils/externalFetch';
 import { IAction } from '../../types';
-import { IItem, setItems } from '../../ducks/item';
+import { IItem, setItems } from '../../ducks/items';
 
 const fetchItems = () =>
   client.request({
