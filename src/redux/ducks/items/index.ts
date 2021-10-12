@@ -1,4 +1,5 @@
 import { IAction } from '../../types';
+import { setItemsReducer } from './reducer';
 // interfaces
 export interface IItem {
   tags: string[];
@@ -11,17 +12,40 @@ export interface IItem {
   itemType: string;
 }
 
+export interface IItemIndex {
+  name: string;
+  items: IItem[];
+}
+
+export interface IItemState {
+  items: IItem[];
+  brands: IItemIndex[];
+  tags: IItemIndex[];
+  sorted: {
+    priceLowHigh: IItem[];
+    dateNewOld: IItem[];
+  };
+}
+
 // Action Types
 export const GET_ITEMS = 'react-case-study/item/get_item';
 export const SET_ITEMS = 'react-case-study/item/set_item';
 
-const initalState: IItem[] = [];
+const initalState: IItemState = {
+  items: [],
+  brands: [],
+  tags: [],
+  sorted: {
+    priceLowHigh: [],
+    dateNewOld: [],
+  },
+};
 // Reducer
-export default function reducer(state = initalState, action: IAction<IItem[]>): IItem[] {
+export default function reducer(state = initalState, action: IAction<IItem[]>): IItemState {
   switch (action.type) {
     case SET_ITEMS:
-      const data = action.payload as IItem[];
-      return [...data];
+      if (action.payload) return setItemsReducer(action.payload);
+      throw new Error('Action Payload is empty @setItemsReducer');
     default:
       return state;
   }
