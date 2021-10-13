@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '../../ProductCard';
 import { StyledProducts } from '../style';
 import { RootState } from '../../../redux';
@@ -7,6 +7,7 @@ import { FILTERS, PER_PAGE } from '../../../constants';
 import { IItem } from '../../../redux/ducks/items';
 import { IFilterState } from '../../../redux/ducks/filters';
 import { Sort } from '../../../redux/ducks/sort';
+import { setItemCount } from '../../../redux/ducks/pagination';
 
 const filterByItemType = (itemType: string, items: IItem[]) => {
   return items.filter((item) => item.itemType === itemType);
@@ -48,9 +49,15 @@ const Products = () => {
   const filterState = useSelector((state: RootState) => state.filters);
   const { sort } = useSelector((state: RootState) => state.sort);
 
+  const dispatch = useDispatch();
+
   const typeFilteredItems = useMemo(() => filterByItemType(filterState.itemType, items), [items, filterState.itemType]);
   const filteredItems = useMemo(() => filterItems(typeFilteredItems, filterState), [typeFilteredItems, filterState]);
   const sortedItems = useMemo(() => sortItems(filteredItems, sort), [filteredItems, sort]);
+
+  useEffect(() => {
+    if (sortedItems.length > 0) dispatch(setItemCount(sortedItems.length));
+  }, [sortedItems, dispatch]);
 
   return (
     <StyledProducts>

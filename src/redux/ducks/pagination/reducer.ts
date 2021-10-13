@@ -1,5 +1,9 @@
 import { IPagination } from '.';
 
-export const setPageReducer = (payload: number): IPagination => {
-  return { page: payload };
+export const setPageReducer = (state: IPagination, payload: number): IPagination => {
+  return { ...state, page: payload };
+};
+
+export const setItemCountReducer = (state: IPagination, payload: number): IPagination => {
+  return { ...state, itemCount: payload };
 };
