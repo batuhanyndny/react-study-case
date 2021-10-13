@@ -14,8 +14,8 @@ const Tags = () => {
 
   const addFilterCallback = useCallback(
     (event: React.FormEvent<HTMLInputElement>) => {
-      if (event.currentTarget.checked) dispatch(addToFilters(event.currentTarget.value));
-      else dispatch(removeFromFilters(event.currentTarget.value));
+      if (event.currentTarget.checked) dispatch(addToFilters({ type: 'filter', filter: event.currentTarget.value }));
+      else dispatch(removeFromFilters({ type: 'filter', filter: event.currentTarget.value }));
     },
     [dispatch],
   );

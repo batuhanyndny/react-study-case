@@ -4,16 +4,30 @@ import { addToFiltersReducer, removeFromFiltersReducer } from './reducer';
 
 export type Filter = string;
 
-export type UnionFilter = Filter | Filter[];
+export type FilterActionType = 'itemType' | 'filter';
+export type FilterItemType = 'mug' | 'shirt';
+
+export type FilterAction = {
+  type: FilterActionType;
+  filter: Filter;
+};
+
+export interface FilterState {
+  filters: Filter[];
+  itemType: FilterItemType;
+}
 
 // Action Types
 export const ADD_FILTER = 'react-case-study/filter/add_filter';
 export const REMOVE_FILTER = 'react-case-study/filter/remove_filter';
 
-const initalState: Filter[] = [];
+const initalState: FilterState = {
+  filters: [],
+  itemType: 'mug',
+};
 
 // Reducer
-export default function reducer(state = initalState, action: IAction<UnionFilter>): Filter[] {
+export default function reducer(state = initalState, action: IAction<FilterAction>): FilterState {
   switch (action.type) {
     case ADD_FILTER:
       if (action.payload) return addToFiltersReducer(state, action.payload);
@@ -27,10 +41,10 @@ export default function reducer(state = initalState, action: IAction<UnionFilter
 }
 
 // Action Creators
-export function addToFilters(filter: UnionFilter): IAction<UnionFilter> {
+export function addToFilters(filter: FilterAction): IAction<FilterAction> {
   return { type: ADD_FILTER, payload: filter };
 }
 
-export function removeFromFilters(item: UnionFilter): IAction<UnionFilter> {
+export function removeFromFilters(item: FilterAction): IAction<FilterAction> {
   return { type: REMOVE_FILTER, payload: item };
 }

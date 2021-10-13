@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface ActiveInterface {
+export interface ActiveInterface {
   active?: boolean;
 }
 
