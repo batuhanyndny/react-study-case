@@ -23,8 +23,7 @@ const Container = styled.div<ContainerProps>`
   ${({ between }) =>
     between &&
     `
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
   `}
 
   @media (min-width: 640px) {

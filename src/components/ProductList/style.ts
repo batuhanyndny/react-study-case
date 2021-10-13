@@ -7,6 +7,7 @@ export const StyledProductListContainer = styled.div`
   align-items: flex-start;
   flex: 1;
   max-width: 608px;
+  gap: 15px;
 `;
 
 export const StyledProducts = styled.div`
@@ -21,6 +22,8 @@ export const StyledProducts = styled.div`
 export const StyledTypeButton = styled.button<ActiveInterface>`
   border: none;
   border-radius: 5px;
+  width: 60px;
+  height: 30px;
   background-color: ${({ theme, active }) => (active ? theme.primary : theme.lightPurple)};
   color: ${({ theme, active }) => (active ? `#fff` : theme.primary)};
 `;

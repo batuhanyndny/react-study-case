@@ -1,23 +1,37 @@
 import styled from 'styled-components';
 
 export const StyledBasket = styled.div`
+  max-height: 321px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  justify-content: start;
   border-radius: 5px;
   padding: 20px;
   border: 5px solid ${({ theme }) => theme.primary};
+  gap: 15px;
+`;
+
+export const BasketItemsContainer = styled.div`
+  height: 290px;
+  overflow-y: scroll;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
 `;
 
 export const StyledBasketItem = styled.div`
   height: 41px;
-  width: 231px;
+  min-width: 231px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.smokeGray};
 `;
 
 export const BasketItemInfo = styled.div`
@@ -45,20 +59,48 @@ export const BasketItemCountContainer = styled.div`
 `;
 
 export const BasketItemCountButton = styled.button`
+  height: 32px;
   border: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   background-color: transparent;
   color: ${({ theme }) => theme.primary};
 `;
 
-export const BasketItemCountLabel = styled.div`
+export const BasketItemCountLabel = styled.input`
+  border: none;
   height: 32px;
   width: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: ${({ theme }) => theme.primary};
   color: #fff;
   font-weight: bold;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const TotalBasketPrice = styled.div`
+  width: 92px;
+  height: 52px;
+  border: 5px solid ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+`;
+
+export const NoItemsInCart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 `;
