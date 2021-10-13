@@ -9,6 +9,7 @@ import Basket from './components/Basket';
 import Filters from './components/Filters';
 import { getItems } from './redux/ducks/items';
 import { getCompanies } from './redux/ducks/company';
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
           <Basket />
         </Container>
       </ContentWrapper>
+      <Footer />
     </Layout>
   );
 }
