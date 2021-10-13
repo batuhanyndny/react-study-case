@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getItems } from './redux/ducks/items';
+import { Layout } from './components/Shared/Layout';
 import Container from './components/Shared/Container';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import ContentWrapper from './components/Shared/ContentWrapper';
-import { Layout } from './components/Shared/Layout';
+import Basket from './components/Basket';
 import Filters from './components/Filters';
+import { getItems } from './redux/ducks/items';
 import { getCompanies } from './redux/ducks/company';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Container flex between>
           <Filters />
           <ProductList />
-          Basket Here
+          <Basket />
         </Container>
       </ContentWrapper>
     </Layout>
