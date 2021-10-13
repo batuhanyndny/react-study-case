@@ -10,7 +10,7 @@ const state: IFilterState = {
 
 const fullState: IFilterState = {
   itemType: 'mug',
-  filters: [FILTERS.PRICE_HIGH_LOW.value, FILTERS.PRICE_NEW_OLD.value, FILTERS.PRICE_OLD_NEW.value],
+  filters: [FILTERS.PRICE_HIGH_LOW.value, FILTERS.DATE_NEW_OLD.value, FILTERS.DATE_OLD_NEW.value],
 };
 
 // Tests
@@ -26,9 +26,9 @@ describe('Filter reducer functions', () => {
   });
 
   it('should remove filter from state', () => {
-    const itemToRemove = FILTERS.PRICE_NEW_OLD.value;
+    const itemToRemove = FILTERS.DATE_NEW_OLD.value;
     const updatedState: IFilterState = {
-      filters: [FILTERS.PRICE_HIGH_LOW.value, FILTERS.PRICE_OLD_NEW.value],
+      filters: [FILTERS.PRICE_HIGH_LOW.value, FILTERS.DATE_OLD_NEW.value],
       itemType: 'mug',
     };
     const newState = removeFromFiltersReducer(fullState, { filter: itemToRemove, type: 'filter' });
