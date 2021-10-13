@@ -21,10 +21,6 @@ export interface IItemState {
   items: IItem[];
   brands: IItemIndex[];
   tags: IItemIndex[];
-  sorted: {
-    priceLowHigh: IItem[];
-    dateNewOld: IItem[];
-  };
 }
 
 // Action Types
@@ -35,10 +31,6 @@ const initalState: IItemState = {
   items: [],
   brands: [],
   tags: [],
-  sorted: {
-    priceLowHigh: [],
-    dateNewOld: [],
-  },
 };
 // Reducer
 export default function reducer(state = initalState, action: IAction<IItem[]>): IItemState {

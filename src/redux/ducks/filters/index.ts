@@ -12,7 +12,7 @@ export type FilterAction = {
   filter: Filter;
 };
 
-export interface FilterState {
+export interface IFilterState {
   filters: Filter[];
   itemType: FilterItemType;
 }
@@ -21,13 +21,13 @@ export interface FilterState {
 export const ADD_FILTER = 'react-case-study/filter/add_filter';
 export const REMOVE_FILTER = 'react-case-study/filter/remove_filter';
 
-const initalState: FilterState = {
+const initalState: IFilterState = {
   filters: [],
   itemType: 'mug',
 };
 
 // Reducer
-export default function reducer(state = initalState, action: IAction<FilterAction>): FilterState {
+export default function reducer(state = initalState, action: IAction<FilterAction>): IFilterState {
   switch (action.type) {
     case ADD_FILTER:
       if (action.payload) return addToFiltersReducer(state, action.payload);

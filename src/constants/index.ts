@@ -31,6 +31,6 @@ export const theme: ITheme = {
 export const FILTERS = {
   PRICE_LOW_HIGH: { value: 'react-study-case/filters/price_low_to_high', label: 'Price low to high' },
   PRICE_HIGH_LOW: { value: 'react-study-case/filters/price_high_to_low', label: 'Price high to low' },
-  PRICE_NEW_OLD: { value: 'react-study-case/filters/price_new_to_old', label: 'New to old' },
-  PRICE_OLD_NEW: { value: 'react-study-case/filters/price_old_to_new', label: 'Old to new' },
+  DATE_NEW_OLD: { value: 'react-study-case/filters/date_new_to_old', label: 'New to old' },
+  DATE_OLD_NEW: { value: 'react-study-case/filters/date_old_to_new', label: 'Old to new' },
 };

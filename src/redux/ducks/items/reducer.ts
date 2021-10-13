@@ -24,17 +24,13 @@ const IndexItems = (items: IItem[]): IItemState => {
     else brands.push({ name: item.manufacturer, items: [item] });
   });
 
-  const priceLowHigh = [...items].sort((a, b) => a.price - b.price);
-  const dateNewOld = [...items].sort((a, b) => b.added - a.added);
+  // const priceLowHigh = [...items].sort((a, b) => a.price - b.price);
+  // const dateNewOld = [...items].sort((a, b) => b.added - a.added);
 
   return {
     items,
     brands,
     tags,
-    sorted: {
-      priceLowHigh,
-      dateNewOld,
-    },
   };
 };
 

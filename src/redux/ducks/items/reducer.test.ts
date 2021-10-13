@@ -59,8 +59,6 @@ const data: IItem[] = [
 
 // add function to check that array is unique.
 const isArrayUnique = <T extends {}>(arr: T) => Array.isArray(arr) && new Set(arr).size === arr.length;
-const sortArrayBy = <T extends {}>(arr: T, field: string, desc: boolean = false) =>
-  Array.isArray(arr) && (desc ? arr.sort((a, b) => b[field] - a[field]) : arr.sort((a, b) => a[field] - b[field]));
 
 describe('items reducer function', () => {
   const state = setItemsReducer(data);
@@ -75,15 +73,5 @@ describe('items reducer function', () => {
 
   it('should return the tags without duplication', () => {
     expect(isArrayUnique(state.tags)).toBeTruthy();
-  });
-
-  it('should return the sorted field: price low to high', () => {
-    const sorted = sortArrayBy(data, 'price');
-    expect(sorted).toStrictEqual(state.sorted.priceLowHigh);
-  });
-
-  it('should return the sorted field: date new to old', () => {
-    const sorted = sortArrayBy(data, 'added', true);
-    expect(sorted).toStrictEqual(state.sorted.dateNewOld);
   });
 });
