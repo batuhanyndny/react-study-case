@@ -14,7 +14,8 @@ interface ITheme {
 export const PER_PAGE = 16;
 
 export const constants = {
-  baseUrl: 'http://localhost:3001/',
+  baseUrl: 'https://react-study-case.herokuapp.com/api/',
+  // baseUrl: 'http://localhost:3001/',
 };
 
 export const theme: ITheme = {
