@@ -9,8 +9,8 @@ export const StyledHeader = styled.div`
 `;
 
 export const StyledCart = styled.div`
-  ${({ theme }) => theme.mediaQueries.mobile } {
-    width: 4rem;
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    width: auto;
   }
   background-color: ${({ theme }) => theme.secondary};
   width: 8rem;

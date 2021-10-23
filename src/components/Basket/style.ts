@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-export const StyledBasket = styled.div`
-  max-height: 321px;
+export const StyledBasket = styled.div<{ visible: boolean }>`
+  background-color: #fff;
+  min-height: 321px;
+  max-height: 100vh;
+  height: inherit;
   width: 280px;
   display: flex;
   flex-direction: column;
@@ -11,10 +14,15 @@ export const StyledBasket = styled.div`
   padding: 20px;
   border: 5px solid ${({ theme }) => theme.primary};
   gap: 15px;
+
+  @media (max-width: 1280px) {
+    max-height: inherit;
+    display: none;
+    ${({ visible }) => visible && 'display: block'};
+  }
 `;
 
 export const BasketItemsContainer = styled.div`
-  height: 290px;
   overflow-y: scroll;
   width: 100%;
 
@@ -89,6 +97,7 @@ export const BasketItemCountLabel = styled.input`
 export const TotalBasketPrice = styled.div`
   width: 92px;
   height: 52px;
+  min-height: 52px;
   border: 5px solid ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.primary};
   display: flex;
@@ -103,4 +112,5 @@ export const NoItemsInCart = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  min-height: 245px;
 `;

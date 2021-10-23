@@ -26,7 +26,7 @@ function App() {
         <Container flex between>
           <Filters />
           <ProductList />
-          {/* <Basket /> */}
+          <Basket visible={false} />
         </Container>
       </ContentWrapper>
       <Footer />

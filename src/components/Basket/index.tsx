@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { BasketItemsContainer, NoItemsInCart, StyledBasket, TotalBasketPrice } from './style';
 import BasketItem from './components/BasketItem';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux';
 
-const Basket = () => {
+const Basket = forwardRef<HTMLDivElement, { visible: boolean }>(({ visible }, ref) => {
   const cart = useSelector((state: RootState) => state.cart);
 
   return (
-    <StyledBasket>
+    <StyledBasket ref={ref} visible={visible}>
       <BasketItemsContainer>
         {cart.products.length > 0 ? (
           Array.from(new Set(cart.products))
@@ -21,6 +21,6 @@ const Basket = () => {
       <TotalBasketPrice>₺ {cart.price}</TotalBasketPrice>
     </StyledBasket>
   );
-};
+});
 
 export default Basket;
