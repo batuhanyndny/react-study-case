@@ -41,6 +41,12 @@ const Container = styled.div<ContainerProps>`
   @media (min-width: 1536px) {
     max-width: 1536px;
   }
+
+  ${({ theme }) => theme.mediaQueries.mobile } {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default Container;

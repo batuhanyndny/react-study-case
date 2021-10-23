@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import {
   FilterContainer,
   FilterContainerLabel,
@@ -16,19 +16,35 @@ const FilterHOC: FC<{
   };
 }> = ({ children }) => {
   const [w] = useWindowSize();
+  const [isMobile, setIsMobile] = useState(w && w < breakpoints.mobile ? true : false);
   const [isOpen, setIsOpen] = React.useState(w && w < breakpoints.mobile ? false : true);
+
+  const close = useCallback(() => {
+    isMobile && setIsOpen(!isOpen);
+  }, [isMobile, isOpen]);
+
+  useEffect(() => {
+    if (w && w > breakpoints.mobile) {
+      setIsMobile(false);
+      setIsOpen(true);
+    } else if (w && w < breakpoints.mobile) {
+      setIsMobile(true);
+      setIsOpen(false);
+    }
+  }, [w]);
 
   return (
     <>
-      <FilterContainer
-        onClick={() => {
-          w && w < breakpoints.mobile && setIsOpen(!isOpen);
-        }}
-      >
-        <FilterContainerLabel>{children.Label}</FilterContainerLabel>
+      <FilterContainer>
+        <FilterContainerLabel onClick={close}>{children.Label}</FilterContainerLabel>
         {isOpen && (
           <FilterContainerContent>
-            <FilterHOCNav>{children.Label}</FilterHOCNav>
+            {isMobile && (
+              <FilterHOCNav>
+                <span onClick={close}></span>
+                {children.Label}
+              </FilterHOCNav>
+            )}
             <FilterHOCContent>{children.Content}</FilterHOCContent>
           </FilterContainerContent>
         )}

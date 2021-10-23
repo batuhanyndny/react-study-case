@@ -91,6 +91,7 @@ export const StyledText = styled.input.attrs((props: IInput) => ({
   name: props.name,
 }))<IInput>`
   height: 48px;
+  min-height: 48px;
   border: 2px solid ${({ theme }) => theme.lighterGray};
   padding: 0 15px;
   ::placeholder {

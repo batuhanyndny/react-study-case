@@ -8,6 +8,10 @@ export const StyledProductListContainer = styled.div`
   flex: 1;
   max-width: 608px;
   gap: 15px;
+
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    max-width: 100%;
+  }
 `;
 
 export const StyledProducts = styled.div`
@@ -16,7 +20,11 @@ export const StyledProducts = styled.div`
   background-color: #fff;
   border-radius: 1rem;
   padding: 20px;
+  justify-content: center;
   gap: 24px;
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    justify-content: space-evenly;
+  }
 `;
 
 export const StyledTypeButton = styled.button<ActiveInterface>`
