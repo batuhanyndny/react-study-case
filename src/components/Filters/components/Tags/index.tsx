@@ -7,6 +7,7 @@ import { RootState } from '../../../../redux';
 import { Checkbox } from '../../../Shared/Input';
 import { addToFilters, removeFromFilters } from '../../../../redux/ducks/filters';
 import FilterHOC from '../FilterHOC';
+import { setPage } from '../../../../redux/ducks/pagination';
 
 const Tags = () => {
   const { tags } = useSelector((state: RootState) => state.items);
@@ -17,6 +18,7 @@ const Tags = () => {
     (event: React.FormEvent<HTMLInputElement>) => {
       if (event.currentTarget.checked) dispatch(addToFilters({ type: 'filter', filter: event.currentTarget.value }));
       else dispatch(removeFromFilters({ type: 'filter', filter: event.currentTarget.value }));
+      dispatch(setPage(1));
     },
     [dispatch],
   );
