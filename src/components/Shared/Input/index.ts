@@ -11,6 +11,7 @@ export interface IInput {
   label?: string;
   value?: string;
   placeholder?: string;
+  selected?: boolean;
   selectFn?: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 

@@ -2,10 +2,18 @@ import React, { FC } from 'react';
 import { InputContainer, StyledRadio, StyledRadioSpan, StyledLabel } from '../style';
 import { IInput } from '../';
 
-const Radiobox: FC<IInput> = ({ label, id, name, value, selectFn }) => {
+const Radiobox: FC<IInput> = ({ label, id, name, value, selectFn, selected }) => {
   return (
     <InputContainer gap={10}>
-      <StyledRadio label={label} id={id} name={name} value={value} onChange={selectFn} />
+      <StyledRadio
+        label={label}
+        id={id}
+        name={name}
+        value={value}
+        onChange={selectFn}
+        selected={selected}
+        checked={selected}
+      />
       <StyledRadioSpan>
         <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

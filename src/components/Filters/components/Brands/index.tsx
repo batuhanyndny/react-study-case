@@ -11,6 +11,8 @@ import { setPage } from '../../../../redux/ducks/pagination';
 
 const Brands = () => {
   const { brands } = useSelector((state: RootState) => state.items);
+  const { filters } = useSelector((state: RootState) => state.filters);
+
   const [text, setText] = useState('');
   const dispatch = useDispatch();
 
@@ -52,6 +54,7 @@ const Brands = () => {
                       name={brand.name}
                       value={brand.name}
                       selectFn={addFilterCallback}
+                      selected={filters.includes(brand.name)}
                     />
                   );
                 })}
