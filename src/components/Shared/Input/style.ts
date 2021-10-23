@@ -5,7 +5,7 @@ export const InputContainer = styled.div<IInputContainer>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: ${({ gap }) => (gap ? `${gap}px` : `5px`)};
+  /* gap: ${({ gap }) => (gap ? `${gap}px` : `5px`)}; */
   width: max-content;
   position: relative;
 `;
@@ -100,5 +100,6 @@ export const StyledText = styled.input.attrs((props: IInput) => ({
 `;
 
 export const StyledLabel = styled.label`
+  margin-left: 10px;
   font-size: 14px;
 `;

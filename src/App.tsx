@@ -25,8 +25,8 @@ function App() {
       <ContentWrapper>
         <Container flex between>
           <Filters />
-          <ProductList />
-          <Basket />
+          {/* <ProductList /> */}
+          {/* <Basket /> */}
         </Container>
       </ContentWrapper>
       <Footer />

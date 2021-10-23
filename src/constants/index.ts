@@ -9,6 +9,8 @@ interface ITheme {
   lighterGray: string;
   purple: string;
   lightPurple: string;
+  breakpoints: Object;
+  mediaQueries: Object;
 }
 
 export const PER_PAGE = 16;
@@ -16,6 +18,13 @@ export const PER_PAGE = 16;
 export const constants = {
   baseUrl: 'https://react-study-case.herokuapp.com/api/',
   // baseUrl: 'http://localhost:3001/',
+};
+
+export const breakpoints = {
+  mobile: 767, // maxwidth
+  tablet: 768, // minwidth
+  desktop: 992, // minwidth
+  widescreen: 1200, // minwidth
 };
 
 export const theme: ITheme = {
@@ -29,6 +38,13 @@ export const theme: ITheme = {
   lighterGray: '#E0E0E0',
   purple: '#5D38C0',
   lightPurple: '#F2F0FD',
+  mediaQueries: {
+    mobile: `@media (max-width: ${breakpoints.mobile}px)`,
+    tablet: `@media (min-width: ${breakpoints.tablet}px)`,
+    desktop: `@media (min-width: ${breakpoints.desktop}px)`,
+    widescreen: `@media (min-width: ${breakpoints.widescreen}px)`,
+  },
+  breakpoints: breakpoints,
 };
 
 export const FILTERS = {
