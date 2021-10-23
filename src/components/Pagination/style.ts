@@ -15,6 +15,9 @@ export const StyledPagination = styled.div`
   display: flex;
   min-width: 535px;
   justify-content: space-between;
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    min-width: auto;
+  }
 `;
 
 export const PaginationButton = styled.button<ActiveInterface>`
@@ -48,6 +51,9 @@ export const PageNumberContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    min-width: auto;
+  }
 `;
 
 export const PageNumber = styled.div<ActiveInterface>`

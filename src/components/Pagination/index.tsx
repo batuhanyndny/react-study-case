@@ -10,12 +10,14 @@ import {
   PaginationDots,
   StyledPagination,
 } from './style';
-import { PER_PAGE } from '../../constants';
+import { breakpoints, PER_PAGE } from '../../constants';
 import { setPage } from '../../redux/ducks/pagination';
+import useWindowSize from '../../utils/useWindowSize';
 
 const Pagination = () => {
   const pagination = useSelector((state: RootState) => state.pagination);
   const dispatch = useDispatch();
+  const [w] = useWindowSize();
 
   const maxPageCount = useMemo(() => {
     return Math.round(pagination.itemCount / PER_PAGE);
@@ -40,7 +42,7 @@ const Pagination = () => {
         </PaginationButton>
         <PageNumberContainer>
           {pages.map((pageNumber, idx) => {
-            if ([pages[0], pages[1]].includes(pageNumber))
+            if ([pages[0]].includes(pageNumber))
               return (
                 <PageNumber
                   key={idx}
@@ -52,10 +54,10 @@ const Pagination = () => {
                   {pageNumber}
                 </PageNumber>
               );
-            if (pagination.page > 4 && idx === 2) {
+            if (pagination.page > 4 && idx === 2 && w! > breakpoints.mobile) {
               return <PaginationDots key={idx}>...</PaginationDots>;
             }
-            if (pagination.page - 1 <= pageNumber && pageNumber <= pagination.page + 2) {
+            if (pagination.page - 1 <= pageNumber && pageNumber <= pagination.page + 1) {
               return (
                 <PageNumber
                   key={idx}
