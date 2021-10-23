@@ -11,6 +11,7 @@ export const StyledHeader = styled.div`
 export const StyledCart = styled.div`
   ${({ theme }) => theme.mediaQueries.mobile} {
     width: auto;
+    min-width: 85px;
   }
   background-color: ${({ theme }) => theme.secondary};
   width: 8rem;
