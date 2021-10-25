@@ -21,8 +21,7 @@ export const constants = {
 };
 
 export const breakpoints = {
-  mobile: 767, // maxwidth
-  tablet: 768, // minwidth
+  mobile: 991, // maxwidth
   desktop: 992, // minwidth
   widescreen: 1200, // minwidth
 };
@@ -40,7 +39,6 @@ export const theme: ITheme = {
   lightPurple: '#F2F0FD',
   mediaQueries: {
     mobile: `@media (max-width: ${breakpoints.mobile}px)`,
-    tablet: `@media (min-width: ${breakpoints.tablet}px)`,
     desktop: `@media (min-width: ${breakpoints.desktop}px)`,
     widescreen: `@media (min-width: ${breakpoints.widescreen}px)`,
   },
