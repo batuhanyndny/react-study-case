@@ -24,7 +24,7 @@ export const breakpoints = {
   mobile: 767, // maxwidth
   tablet: 768, // minwidth
   desktop: 992, // minwidth
-  widescreen: 1200, // minwidth
+  widescreen: 1280, // maxwidth
 };
 
 export const theme: ITheme = {
@@ -42,7 +42,7 @@ export const theme: ITheme = {
     mobile: `@media (max-width: ${breakpoints.mobile}px)`,
     tablet: `@media (min-width: ${breakpoints.tablet}px)`,
     desktop: `@media (min-width: ${breakpoints.desktop}px)`,
-    widescreen: `@media (min-width: ${breakpoints.widescreen}px)`,
+    widescreen: `@media (max-width: ${breakpoints.widescreen}px)`,
   },
   breakpoints: breakpoints,
 };

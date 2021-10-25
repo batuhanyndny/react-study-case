@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 const ProductCard: FC<{ product: IItem }> = ({ product }) => {
   const dispatch = useDispatch();
   return (
-    <StyledProductCard>
+    <StyledProductCard data-cy="product-card">
       <ImageContainer>
         <img alt="product" src="https://via.placeholder.com/92"></img>
       </ImageContainer>
@@ -16,6 +16,7 @@ const ProductCard: FC<{ product: IItem }> = ({ product }) => {
       </Price>
       <Title>{product.name}</Title>
       <Button
+        data-cy="add-to-cart"
         onClick={() => {
           dispatch(addToCart(product));
         }}

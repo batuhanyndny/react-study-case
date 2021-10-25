@@ -15,7 +15,7 @@ export const StyledBasket = styled.div<{ visible: boolean }>`
   border: 5px solid ${({ theme }) => theme.primary};
   gap: 15px;
 
-  @media (max-width: 1280px) {
+  ${({ theme }) => theme.mediaQueries.widescreen} {
     max-height: inherit;
     display: none;
     ${({ visible }) => visible && 'display: block'};

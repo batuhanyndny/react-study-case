@@ -20,6 +20,7 @@ const Sorting = () => {
   return (
     <FilterHOC>
       {{
+        cypressLabel: 'sort',
         Label: 'Sorting',
         Content: Object.entries(FILTERS).map(([key, { label, value }], idx) => (
           <Radiobox

@@ -28,6 +28,7 @@ const Tags = () => {
   return (
     <FilterHOC>
       {{
+        cypressLabel: 'tags',
         Label: 'Tags',
         Content: (
           <>

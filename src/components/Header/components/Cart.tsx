@@ -33,6 +33,7 @@ const Cart = () => {
 
   return (
     <StyledCart
+      data-cy="header-cart"
       onClick={() => {
         setIsOpen(true);
       }}

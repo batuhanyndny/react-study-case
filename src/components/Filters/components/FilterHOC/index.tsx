@@ -13,6 +13,7 @@ const FilterHOC: FC<{
   children: {
     Label: ReactNode;
     Content: ReactNode;
+    cypressLabel: string;
   };
 }> = ({ children }) => {
   const [w] = useWindowSize();
@@ -35,10 +36,12 @@ const FilterHOC: FC<{
 
   return (
     <>
-      <FilterContainer>
-        <FilterContainerLabel onClick={close}>{children.Label}</FilterContainerLabel>
+      <FilterContainer data-cy={children.cypressLabel}>
+        <FilterContainerLabel onClick={close} data-cy={`${children.cypressLabel}__label`}>
+          {children.Label}
+        </FilterContainerLabel>
         {isOpen && (
-          <FilterContainerContent>
+          <FilterContainerContent data-cy={`${children.cypressLabel}__content`}>
             {isMobile && (
               <FilterHOCNav>
                 <span onClick={close}></span>

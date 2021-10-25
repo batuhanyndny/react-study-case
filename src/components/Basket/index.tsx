@@ -8,7 +8,7 @@ const Basket = forwardRef<HTMLDivElement, { visible: boolean }>(({ visible }, re
   const cart = useSelector((state: RootState) => state.cart);
 
   return (
-    <StyledBasket ref={ref} visible={visible}>
+    <StyledBasket ref={ref} visible={visible} data-cy="test__basket">
       <BasketItemsContainer>
         {cart.products.length > 0 ? (
           Array.from(new Set(cart.products))
