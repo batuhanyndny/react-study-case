@@ -11,6 +11,7 @@ export const StyledProductListContainer = styled.div`
 
   ${({ theme }) => theme.mediaQueries.mobile} {
     max-width: 100%;
+    margin: 0 5px;
   }
 `;
 
